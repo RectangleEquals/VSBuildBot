@@ -8,8 +8,8 @@ server.ws.on("connection", function(ws, req)
 
   ws.send("OK", function() { })
   ws.on('message', function(message) {
-    const channel = bot.channels.cache.get(process.env.CHANNEL_ID);
-    channel.send(message);
+    const channel = await bot.channels.fetch(process.env.CHANNEL_ID);
+    await channel.send(message);
   });
 
   ws.on("close", function() {
