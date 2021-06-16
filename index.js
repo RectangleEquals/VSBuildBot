@@ -7,7 +7,7 @@ server.ws.on("connection", function(ws, req)
   console.log("websocket connection open")
 
   ws.send("OK", function() { })
-  ws.on('message', function(message) {
+  ws.on('message', async function(message) {
     const channel = await bot.channels.fetch(process.env.CHANNEL_ID);
     await channel.send(message);
   });
