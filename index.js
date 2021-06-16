@@ -1,4 +1,4 @@
-const config = require(__dirname + '/config/config.json');
+//const config = require(__dirname + '/config/config.json');
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const server = require('./server');
