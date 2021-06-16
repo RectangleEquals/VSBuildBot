@@ -3,10 +3,14 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const server = require('./server');
 
-server.ws.on("connection", function(ws) {
+server.ws.on("connection", function(ws, req) {
+  let addrServer = req.socket.localAddress;
+  let addrRemote = req.socket.remoteAddress;
+
   var id = setInterval(function() {
     let msg = "<div>Server time: " + JSON.stringify(new Date()) + "</div><br/>";
-    msg += "<div>Server address: " + server.ws.address().address + "</div>";
+    msg += "<div>Server address: " + addrServer + "</div>";
+    msg += "<div>Remote address: " + addrRemote + "</div>";
     ws.send(msg, function() { })
   }, 1000)
 
