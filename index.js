@@ -2,6 +2,7 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const server = require('./server');
+var http = require("http");
 
 server.ws.on("connection", function(ws, req)
 {
@@ -13,7 +14,7 @@ server.ws.on("connection", function(ws, req)
   
   var addrExternal = "";
 
-  server.http.get(options, function(res) {
+  http.get(options, function(res) {
     console.log("status: " + res.statusCode);
     
     res.on("data", function(chunk) {
