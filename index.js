@@ -5,7 +5,9 @@ const server = require('./server');
 
 server.ws.on("connection", function(ws) {
   var id = setInterval(function() {
-    ws.send(JSON.stringify(new Date()), function() {  })
+    let msg = "<div>Server time: " + JSON.stringify(new Date()) + "</div><br/>";
+    msg += "<div>Server address: " + server.ws.address() + "</div>";
+    ws.send(msg, function() { })
   }, 1000)
 
   console.log("websocket connection open")

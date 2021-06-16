@@ -7,12 +7,12 @@
         var el;
 
         ws.onmessage = function (event) {
-          el = document.getElementById('server-time');
-          el.innerHTML = 'Server time: ' + event.data;
+          el = document.getElementById('server-data');
+          el.innerHTML = event.data;
         };
       </script>
   </head>
   <body>
-    <div id="server-time"></div>
+    <div id="server-data"></div>
   </body>
 </html>
