@@ -14,7 +14,6 @@ server.ws.on("connection", function(ws, req)
 
   ws.on("close", function() {
     console.log("websocket connection close")
-    clearInterval(id)
   })
 })
 
